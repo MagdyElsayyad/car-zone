@@ -1,0 +1,26 @@
+/* Start Form */
+
+
+section.book form h2 {
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+section.book form label {
+    margin-bottom: 0 !important;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+section.book form .btn {
+    background-color: var(--active-font-color) !important;
+    margin-top: 2rem;
+    border-radius: 2px !important;
+    border: none !important;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 20px;
+}
+
+/* End Form */

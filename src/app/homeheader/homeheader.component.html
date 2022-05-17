@@ -1,0 +1,12 @@
+<section class="vh-100">
+
+
+    <owl-carousel-o [options]="customOptions">
+ 
+        <ng-template carouselSlide *ngFor="let movie of trendingMovies" [id]="movie">
+            <img [src]="imgPrefix + movie.poster_path" [alt]="movie.title">
+        </ng-template>
+       
+      </owl-carousel-o>
+
+</section>
