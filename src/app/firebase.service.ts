@@ -14,7 +14,7 @@ import { User } from './core/user';
 export class FirebaseService {
   userData: any; // Save logged in user data
   currentUser = new BehaviorSubject<firebase.User | null>(null);
-  
+  isAuth = false;
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -83,6 +83,7 @@ export class FirebaseService {
   userChanges(withRedirect = false) {
     this.afAuth.onAuthStateChanged(currentUser => {
       if (currentUser?.toJSON()) {
+        this.isAuth = true;
         this.afs.collection('users').ref.where('email', '==', currentUser.email).onSnapshot(snap => {
           snap.forEach(userRef => {
             this.currentUser.next(userRef.data() as firebase.User);
@@ -181,6 +182,22 @@ export class FirebaseService {
     let cars: any[] = [];
     return new Observable((sub) =>{
       this.afs.collection('products').ref.where('productCategory', '==', cat).onSnapshot(snap => {
+        cars = []
+        snap.forEach(p => {
+          cars.push(p.data());
+        });
+        sub.next(cars);
+      }, () => {
+        sub.error('Error');
+      });
+
+    })
+  }
+  // get cars by brand
+  getDataByBrand(brand: string): Observable<any>{
+    let cars: any[] = [];
+    return new Observable((sub) =>{
+      this.afs.collection('products').ref.where('productBrand', '==', brand).onSnapshot(snap => {
         cars = []
         snap.forEach(p => {
           cars.push(p.data());

@@ -1,0 +1,195 @@
+
+     <!-- Start Top Title -->
+     <div class="Top-title pt-0 mt-5">
+        <div class="layout">
+            <div class="caption">
+                <h1>Agencies</h1>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Title -->
+
+
+    <div class="home  mt-5">
+           <!-- path -->
+           <div class="content mt-4"  data-aos="fade-up"
+           data-aos-anchor-placement="top-bottom">
+               <div class="path py-1 px-3 container">
+                   <span class="pr-1 home">Home</span>
+                   <span class="pr-1 gray"> ></span>
+                   <span class="mx-2">{{brand}} Cars </span>
+               </div>
+           </div>
+   
+           <div class="title text-center my-5"  data-aos="zoom-in-down">
+               <h2>{{brand}}</h2>
+           
+           </div>
+    
+    </div>
+
+    <div class="container">
+      
+        <div class="row">
+          
+    
+            <div class="col-md-9 mb-5">
+                <div *ngIf="!cars || !cars.length" class="row justify-content-center">
+                    No cars
+                </div>
+                <div *ngIf="cars && cars.length" class="row p-0 ">
+                    <div *ngFor="let car of cars" class="col-md-4  ">
+                        <div class="cars border rounded p-1">
+    
+    
+                            <a  [routerLink]="['/oldcar/detailsoldcar', car?.productId]">
+                                <img class="w-100 rounded "
+                                    [src]="car?.productImage || '../../assets/img-forw/img-forw/سيات-ابيزا-2021-scaled.jpg'"
+                                    alt="">
+                            </a>
+                            <div class="pl-2 mt-3 font-weight-bolder">
+                                <h5 class="font-weight-bold">{{car?.productTitle}}</h5>
+                                <p class="mb-1 text-muted fs-6">{{car?.productBrand}}</p>
+                                <h5 class="font-weight-bold">{{car?.price}} EGP</h5>
+                                
+                                <p *ngIf="car?.productDescription">
+                                    <small>
+                                        {{( car?.productDescription && car?.productDescription?.length! > 50? car?.productDescription?.slice(0, 50) : car?.productDescription) }}
+                                    </small>
+                                </p>
+                                <div class="border-bottom w-100 my-2 p-0"></div>
+    
+                                <div class="d-flex justify-content-between">
+                                      
+        
+                                    <a   [routerLink]="['/oldcar/detailsoldcar', car?.productId]" class="mr-2 btn btn-dark d-flex align-items-center pointer">
+                                        <i class="fa-solid fa-bars"></i>
+                                        <span class=" ml-1">Details</span>
+                                    </a>
+                                    <a *ngIf="!(compareService.isInCompare(car) | async)" (click)="addToCompare(car)" class="mr-2 btn d-flex align-items-center btn-primary pointer">
+                                        <i class="fa-solid fa-circle-plus "></i>
+                                        <span class=" ml-1">Compare</span>
+                                    </a>
+                                    <a *ngIf="(compareService.isInCompare(car) | async)" (click)="addToCompare(car)" class="mr-2 btn d-flex align-items-center btn-success pointer">
+                                        <i class="fa-solid fa-times "></i>
+                                        <span class=" ml-1">Compared</span>
+                                    </a>
+    
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+    
+    
+    
+                </div>
+            </div>
+    
+           
+
+         
+        </div>
+    
+
+    </div>
+    
+
+
+
+                <!-- Start Footer -->
+                <footer class="mt-5">
+                    <div class="container">
+                        <!-- 2 -->
+                        <div class="middle">
+                            <div class="row">
+                                <!-- 1 -->
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="box">
+                                        <h3>Help</h3>
+                                        <ul>
+                                            <li>
+                                                <a href="#">Contact Us</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Country</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">FAQ</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- 2 -->
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="box">
+                                        <h3>Services</h3>
+                                        <ul>
+                                            <li>
+                                                <a href="index.html">Home</a>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html">Compare</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Car services</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Rescue winch</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- 3 -->
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="box">
+                                        <h3>Tags</h3>
+                                        <ul>
+                                            <li>
+                                                <a href="#">Care</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Car services</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Saleing</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Rescue</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="bottom">
+                        <div class="content">
+                            <div class="social">
+                                <div class="icon-box">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </div>
+                                <div class="icon-box">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </div>
+                                <div class="icon-box">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                            </div>
+                            <div class="copyright">
+                                <p>©2022 All rights resaved <a href="#">Car Zone</a></p>
+                            </div>
+                            <div class="lang">
+                                <select>
+                                    <option value="">Language</option>
+                                    <option value="English">English</option>
+                                    <option value="French">French</option>
+                                    <option value="Arabic">Arabic</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End Footer -->

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AgenciesComponent } from './agencies/agencies.component';
 import { BooknowComponent } from './booknow/booknow.component';
+import { BrandCarsComponent } from './brand-cars/brand-cars.component';
 import { ComparComponent } from './compar/compar.component';
 import { AuthGuard } from './core/auth.guard';
 import { DetailsagenciesComponent } from './detailsagencies/detailsagencies.component';
@@ -43,6 +44,7 @@ const routes: Routes = [
   {path:'oldcar/detailsoldcar/:id',canActivate:[AuthGuard],component:DetailsoldcarComponent},
   {path:'agencies/detailsagencies',canActivate:[AuthGuard],component:DetailsagenciesComponent},
   {path:'search/:q',canActivate:[AuthGuard],component:SearchResultComponent},
+  {path:'brand/:brand',canActivate:[AuthGuard],component:BrandCarsComponent},
 
 
   
