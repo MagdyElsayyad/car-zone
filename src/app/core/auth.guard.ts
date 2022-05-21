@@ -19,8 +19,7 @@ export class AuthGuard implements CanActivate {
       return new Observable((sub) => {
 
         this.firebaseService.currentUser.subscribe((usr) => {
-          console.log(usr);
-          const currentUser = this.firebaseService.currentUser.value;
+          const currentUser = usr;
           if (currentUser) {
             sub.next(true)
           }

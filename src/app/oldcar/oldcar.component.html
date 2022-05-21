@@ -1,680 +1,297 @@
+<!-- Start Top Title -->
+<div class="Top-title pt-0 mt-5">
+    <div class="layout">
+        <div class="caption">
+            <h1>Used Car</h1>
+        </div>
+    </div>
+</div>
+<!-- End Top Title -->
+
+<div class="container mt-4" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+    <div class="path">
+        <span class="pr-1">Used car</span>
+        <span class="pr-1 gray"> ></span>
+        <span class="pr-1">Used car</span>
+    </div>
+</div>
+
+<div class="container">
 
 
-     <!-- Start Top Title -->
-     <div class="Top-title pt-0 mt-5">
-        <div class="layout">
-            <div class="caption">
-                <h1>Used Car</h1>
+
+    <div class="row justify-content-center my-3">
+
+        <div *ngIf="false" class="col-md-3 ">
+            <div class="container border rounded py-3 ">
+                <h5>Filter</h5>
+                <div>
+                    <h5><span>Car Typo</span></h5>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">Econemy</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> Compact </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> Midsize</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> Standard</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> Full-size</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> SUV</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> Van</label>
+                </div>
+
+
+
+                <div class="my-3">
+                    <h5><span>Passangers</span></h5>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> 1 to 2 Passangers</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> 3 to 5 Passangers</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> 6 or more</label>
+                </div>
+
+                <div class="my-3">
+                    <h5><span>Air Bags</span></h5>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> 1 to 2 bags</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> 3 to 5 bags</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> 6 or more</label>
+                </div>
+
+
+
+                <div class="my-3">
+                    <h5><span>Transmission</span></h5>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> Automatic</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> Manual</label>
+                </div>
+
+                <div class="my-3">
+                    <h5><span>User Review</span></h5>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> Excellent</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> Good</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> Poor</label>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="col-md-9 mb-5">
+            <div *ngIf="!cars || !cars.length" class="row justify-content-center">
+                No cars
+            </div>
+            <div *ngIf="cars && cars.length" class="row p-0 ">
+                <div *ngFor="let car of cars" class="col-md-4  " [routerLink]="['/oldcar/detailsoldcar', car?.productId]">
+                    <div class="cars border rounded p-1">
+
+
+                        <a >
+                            <img class="w-100 rounded "
+                                [src]="car?.productImage || '../../assets/img-forw/img-forw/سيات-ابيزا-2021-scaled.jpg'"
+                                alt="">
+                        </a>
+                        <div class="pl-2 mt-3 font-weight-bolder">
+                            <h5 class="font-weight-bold">{{car?.productTitle}}</h5>
+                            <p class="mb-1 text-muted fs-6">{{car?.productBrand}}</p>
+                            <h5 class="font-weight-bold">{{car?.price}} EGP</h5>
+                            
+                            <p *ngIf="car?.productDescription">
+                                <small>
+                                    {{( car?.productDescription && car?.productDescription?.length! > 50? car?.productDescription?.slice(0, 50) : car?.productDescription) }}
+                                </small>
+                            </p>
+                            <div class="border-bottom w-100 my-2 p-0"></div>
+
+                            <div class="d-flex justify-content-between">
+                                <div class="ml-2">
+                                    
+                                </div>
+
+                                <div class="mr-2">
+                                    <i class="fa-solid fa-circle-plus text-primary"></i>
+                                    <span class="fw-bolder ml-1"> Compare</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+<!-- Start Footer -->
+<footer>
+    <div class="container ">
+        <!-- 1 -->
+        <div class="top">
+
+            <div class="slide">
+                <div class="text">
+                    <p>Tips before buying a car !</p>
+                </div>
+                <div class="image">
+                    <img src="../../assets/images/1.jpg" alt="">
+                </div>
+            </div>
+
+
+        </div>
+        <!-- 2 -->
+        <div class="middle">
+            <div class="row">
+                <!-- 1 -->
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="box">
+                        <h3>Help</h3>
+                        <ul>
+                            <li>
+                                <a href="#">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Country</a>
+                            </li>
+                            <li>
+                                <a href="#">FAQ</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="box">
+                        <h3>Services</h3>
+                        <ul>
+                            <li>
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="compare.html">Compare</a>
+                            </li>
+                            <li>
+                                <a href="#">Car services</a>
+                            </li>
+                            <li>
+                                <a href="#">Rescue winch</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="box">
+                        <h3>Tags</h3>
+                        <ul>
+                            <li>
+                                <a href="#">Care</a>
+                            </li>
+                            <li>
+                                <a href="#">Car services</a>
+                            </li>
+                            <li>
+                                <a href="#">Saleing</a>
+                            </li>
+                            <li>
+                                <a href="#">Rescue</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- End Top Title -->
 
-    <div class="container mt-4" data-aos="fade-up"
-    data-aos-anchor-placement="top-bottom">
-        <div class="path">
-            <span class="pr-1">Used car</span>
-            <span class="pr-1 gray"> ></span>
-            <span class="pr-1">Used car</span>
+    <div class="bottom">
+        <div class="content">
+            <div class="social">
+                <div class="icon-box">
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+                <div class="icon-box">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <div class="icon-box">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>©2022 All rights resaved <a href="#">Car Zone</a></p>
+            </div>
+            <div class="lang">
+                <select>
+                    <option value="">Language</option>
+                    <option value="English">English</option>
+                    <option value="French">French</option>
+                    <option value="Arabic">Arabic</option>
+                </select>
+            </div>
         </div>
     </div>
-
-    <div class="container">
-
-        <div class="btn-group w-25 border rounded mr-1">
-            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              color
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </div>
-
-
-          <div class="btn-group w-25 border rounded mr-1">
-            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Model
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </div>
-        
-        
-          <div class="btn-group w-25 border rounded mr-1">
-            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Brand
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </div>
-
-          <button class="btn btn-primary w-15 ml-4 ">Search</button>
-
-
-          <div class="row my-3">
-       
-              <div class="col-md-3 ">
-                <div class="container border rounded py-3 ">
-                    <h5>Filter</h5>
-                 <div><h5><span>Car Typo</span></h5></div> 
- 
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault">Econemy</label>
-                 </div>
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> Compact </label>
-                 </div>   
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> Midsize</label>
-                 </div>   
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> Standard</label>
-                 </div>   
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> Full-size</label>
-                 </div>   
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> SUV</label>
-                 </div>   
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> Van</label>
-                 </div>   
-               
- 
- 
-                 <div class="my-3"><h5><span>Passangers</span></h5></div> 
- 
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> 1 to 2 Passangers</label>
-                 </div>  
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> 3 to 5 Passangers</label>
-                 </div>  
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> 6 or more</label>
-                 </div>  
- 
-                 <div class="my-3"><h5><span>Air Bags</span></h5></div> 
- 
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> 1 to 2 bags</label>
-                 </div>   
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> 3 to 5 bags</label>
-                 </div> 
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> 6 or more</label>
-                 </div>   
- 
- 
- 
-                 <div class="my-3"><h5><span>Transmission</span></h5></div>
- 
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> Automatic</label>
-                 </div>   
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> Manual</label>
-                 </div>  
- 
-                 <div class="my-3"><h5><span>User Review</span></h5></div>
- 
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> Excellent</label>
-                 </div>   
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> Good</label>
-                 </div> 
-                 <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault"> Poor</label>
-                 </div> 
-             </div>
-            
-
-             
-              </div>
-
-              <div class="col-md-9 mb-5">
-                    <div class="row p-0 ">
-                        <div class="col-md-4  ">
-                            <div class="cars border rounded p-1">
-                                
-                                
-                                <a routerLink="detailsoldcar">
-                                    <img class="w-100 rounded " src="../../assets/img-forw/img-forw/سيات-ابيزا-2021-scaled.jpg" alt="">
-                                    </a>                                <div class="pl-2 mt-3 font-weight-bolder">
-                                <h5 class="font-weight-bold">Golf 7 TDI</h5> 
-                                <p class="mb-1 text-muted fs-6">2021 model</p>
-                                <h5 class="font-weight-bold">350.000 EGP</h5>
-                                <div class="icon w-15 d-flex">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 3-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 5-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 4-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 6-8.png" alt="">
-
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">air conditioner</label>
-                                  </div>
-                                  <div class="form-check  ">
-                                    <input class="form-check-input rounded-circle" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">electric glass</label>
-                                  </div>
-                                  <div class="border-bottom w-100 my-2 p-0"></div>
-
-                                  <div class="d-flex justify-content-between">
-                                      <div class="ml-2">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <span class="fw-bolder ml-1"> 4.5</span> 
-                                      </div>
-                                  
-                                      <div class="mr-2">
-                                        <i class="fa-solid fa-circle-plus text-primary"></i>
-                                        <span class="fw-bolder ml-1"> Compare</span> 
-                                      </div>
-                               
-                                  </div>
-                                 </div>
-                            </div>
-
-                           </div>
-                           <div class="col-md-4 ">
-                            <div class="cars border rounded p-1">
-                                
-                                
-                                <a routerLink="detailsoldcar">
-                                    <img class="w-100 rounded " src="../../assets/img-forw/img-forw/سيات-ابيزا-2021-scaled.jpg" alt="">
-                                    </a>                                <div class="pl-2 mt-3 font-weight-bolder">
-                                <h5 class="font-weight-bold">Golf 7 TDI</h5> 
-                                <p class="mb-1 text-muted fs-6">2021 model</p>
-                                <h5 class="font-weight-bold">350.000 EGP</h5>
-                                <div class="icon w-15 d-flex">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 3-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 5-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 4-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 6-8.png" alt="">
-
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">air conditioner</label>
-                                  </div>
-                                  <div class="form-check  ">
-                                    <input class="form-check-input rounded-circle" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">electric glass</label>
-                                  </div>
-                                  <div class="border-bottom w-100 my-2 p-0"></div>
-
-                                  <div class="d-flex justify-content-between">
-                                      <div class="ml-2">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <span class="fw-bolder ml-1"> 4.5</span> 
-                                      </div>
-                                  
-                                      <div class="mr-2">
-                                        <i class="fa-solid fa-circle-plus text-primary"></i>
-                                        <span class="fw-bolder ml-1"> Compare</span> 
-                                      </div>
-                               
-                                  </div>
-                                 </div>
-                            </div>
-
-                           </div>
-                           <div class="col-md-4 ">
-                            <div class="cars border rounded p-1">
-                                
-                                
-                                <a routerLink="detailsoldcar">
-                                    <img class="w-100 rounded " src="../../assets/img-forw/img-forw/سيات-ابيزا-2021-scaled.jpg" alt="">
-                                    </a>                                <div class="pl-2 mt-3 font-weight-bolder">
-                                <h5 class="font-weight-bold">Golf 7 TDI</h5> 
-                                <p class="mb-1 text-muted fs-6">2021 model</p>
-                                <h5 class="font-weight-bold">350.000 EGP</h5>
-                                <div class="icon w-15 d-flex">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 3-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 5-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 4-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 6-8.png" alt="">
-
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">air conditioner</label>
-                                  </div>
-                                  <div class="form-check  ">
-                                    <input class="form-check-input rounded-circle" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">electric glass</label>
-                                  </div>
-                                  <div class="border-bottom w-100 my-2 p-0"></div>
-
-                                  <div class="d-flex justify-content-between">
-                                      <div class="ml-2">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <span class="fw-bolder ml-1"> 4.5</span> 
-                                      </div>
-                                  
-                                      <div class="mr-2">
-                                        <i class="fa-solid fa-circle-plus text-primary"></i>
-                                        <span class="fw-bolder ml-1"> Compare</span> 
-                                      </div>
-                               
-                                  </div>
-                                 </div>
-                            </div>
-
-                           </div>
-                           <div class="col-md-4  mt-3">
-                            <div class="cars border rounded p-1">
-                                
-                                
-                                <a routerLink="detailsoldcar">
-                                    <img class="w-100 rounded " src="../../assets/img-forw/img-forw/سيات-ابيزا-2021-scaled.jpg" alt="">
-                                    </a>                                <div class="pl-2 mt-3 font-weight-bolder">
-                                <h5 class="font-weight-bold">Golf 7 TDI</h5> 
-                                <p class="mb-1 text-muted fs-6">2021 model</p>
-                                <h5 class="font-weight-bold">350.000 EGP</h5>
-                                <div class="icon w-15 d-flex">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 3-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 5-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 4-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 6-8.png" alt="">
-
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">air conditioner</label>
-                                  </div>
-                                  <div class="form-check  ">
-                                    <input class="form-check-input rounded-circle" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">electric glass</label>
-                                  </div>
-                                  <div class="border-bottom w-100 my-2 p-0"></div>
-
-                                  <div class="d-flex justify-content-between">
-                                      <div class="ml-2">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <span class="fw-bolder ml-1"> 4.5</span> 
-                                      </div>
-                                  
-                                      <div class="mr-2">
-                                        <i class="fa-solid fa-circle-plus text-primary"></i>
-                                        <span class="fw-bolder ml-1"> Compare</span> 
-                                      </div>
-                               
-                                  </div>
-                                 </div>
-                            </div>
-
-                           </div>
-                           <div class="col-md-4  mt-3">
-                            <div class="cars border rounded p-1">
-                                
-                                
-                                <a routerLink="detailsoldcar">
-                                    <img class="w-100 rounded " src="../../assets/img-forw/img-forw/سيات-ابيزا-2021-scaled.jpg" alt="">
-                                    </a>                                <div class="pl-2 mt-3 font-weight-bolder">
-                                <h5 class="font-weight-bold">Golf 7 TDI</h5> 
-                                <p class="mb-1 text-muted fs-6">2021 model</p>
-                                <h5 class="font-weight-bold">350.000 EGP</h5>
-                                <div class="icon w-15 d-flex">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 3-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 5-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 4-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 6-8.png" alt="">
-
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">air conditioner</label>
-                                  </div>
-                                  <div class="form-check  ">
-                                    <input class="form-check-input rounded-circle" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">electric glass</label>
-                                  </div>
-                                  <div class="border-bottom w-100 my-2 p-0"></div>
-
-                                  <div class="d-flex justify-content-between">
-                                      <div class="ml-2">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <span class="fw-bolder ml-1"> 4.5</span> 
-                                      </div>
-                                  
-                                      <div class="mr-2">
-                                        <i class="fa-solid fa-circle-plus text-primary"></i>
-                                        <span class="fw-bolder ml-1"> Compare</span> 
-                                      </div>
-                               
-                                  </div>
-                                 </div>
-                            </div>
-
-                           </div>
-                           <div class="col-md-4  mt-3">
-                            <div class="cars border rounded p-1">
-                                
-                                
-                                <a routerLink="detailsoldcar">
-                                    <img class="w-100 rounded " src="../../assets/img-forw/img-forw/سيات-ابيزا-2021-scaled.jpg" alt="">
-                                    </a>                                <div class="pl-2 mt-3 font-weight-bolder">
-                                <h5 class="font-weight-bold">Golf 7 TDI</h5> 
-                                <p class="mb-1 text-muted fs-6">2021 model</p>
-                                <h5 class="font-weight-bold">350.000 EGP</h5>
-                                <div class="icon w-15 d-flex">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 3-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 5-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 4-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 6-8.png" alt="">
-
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">air conditioner</label>
-                                  </div>
-                                  <div class="form-check  ">
-                                    <input class="form-check-input rounded-circle" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">electric glass</label>
-                                  </div>
-                                  <div class="border-bottom w-100 my-2 p-0"></div>
-
-                                  <div class="d-flex justify-content-between">
-                                      <div class="ml-2">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <span class="fw-bolder ml-1"> 4.5</span> 
-                                      </div>
-                                  
-                                      <div class="mr-2">
-                                        <i class="fa-solid fa-circle-plus text-primary"></i>
-                                        <span class="fw-bolder ml-1"> Compare</span> 
-                                      </div>
-                               
-                                  </div>
-                                 </div>
-                            </div>
-
-                           </div>
-                           <div class="col-md-4  mt-3">
-                            <div class="cars border rounded p-1">
-                                
-                                
-                                <a routerLink="detailsoldcar">
-                                    <img class="w-100 rounded " src="../../assets/img-forw/img-forw/سيات-ابيزا-2021-scaled.jpg" alt="">
-                                    </a>                                <div class="pl-2 mt-3 font-weight-bolder">
-                                <h5 class="font-weight-bold">Golf 7 TDI</h5> 
-                                <p class="mb-1 text-muted fs-6">2021 model</p>
-                                <h5 class="font-weight-bold">350.000 EGP</h5>
-                                <div class="icon w-15 d-flex">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 3-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 5-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 4-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 6-8.png" alt="">
-
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">air conditioner</label>
-                                  </div>
-                                  <div class="form-check  ">
-                                    <input class="form-check-input rounded-circle" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">electric glass</label>
-                                  </div>
-                                  <div class="border-bottom w-100 my-2 p-0"></div>
-
-                                  <div class="d-flex justify-content-between">
-                                      <div class="ml-2">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <span class="fw-bolder ml-1"> 4.5</span> 
-                                      </div>
-                                  
-                                      <div class="mr-2">
-                                        <i class="fa-solid fa-circle-plus text-primary"></i>
-                                        <span class="fw-bolder ml-1"> Compare</span> 
-                                      </div>
-                               
-                                  </div>
-                                 </div>
-                            </div>
-
-                           </div>
-                           <div class="col-md-4  mt-3">
-                            <div class="cars border rounded p-1">
-                                
-                                
-                                <a routerLink="detailsoldcar">
-                                    <img class="w-100 rounded " src="../../assets/img-forw/img-forw/سيات-ابيزا-2021-scaled.jpg" alt="">
-                                    </a>                                <div class="pl-2 mt-3 font-weight-bolder">
-                                <h5 class="font-weight-bold">Golf 7 TDI</h5> 
-                                <p class="mb-1 text-muted fs-6">2021 model</p>
-                                <h5 class="font-weight-bold">350.000 EGP</h5>
-                                <div class="icon w-15 d-flex">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 3-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 5-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 4-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 6-8.png" alt="">
-
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">air conditioner</label>
-                                  </div>
-                                  <div class="form-check  ">
-                                    <input class="form-check-input rounded-circle" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">electric glass</label>
-                                  </div>
-                                  <div class="border-bottom w-100 my-2 p-0"></div>
-
-                                  <div class="d-flex justify-content-between">
-                                      <div class="ml-2">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <span class="fw-bolder ml-1"> 4.5</span> 
-                                      </div>
-                                  
-                                      <div class="mr-2">
-                                        <i class="fa-solid fa-circle-plus text-primary"></i>
-                                        <span class="fw-bolder ml-1"> Compare</span> 
-                                      </div>
-                               
-                                  </div>
-                                 </div>
-                            </div>
-
-                           </div>
-                           <div class="col-md-4  mt-3">
-                            <div class="cars border rounded p-1">
-                                
-                                
-                                <a routerLink="detailsoldcar">
-                                    <img class="w-100 rounded " src="../../assets/img-forw/img-forw/سيات-ابيزا-2021-scaled.jpg" alt="">
-                                    </a>                                <div class="pl-2 mt-3 font-weight-bolder">
-                                <h5 class="font-weight-bold">Golf 7 TDI</h5> 
-                                <p class="mb-1 text-muted fs-6">2021 model</p>
-                                <h5 class="font-weight-bold">350.000 EGP</h5>
-                                <div class="icon w-15 d-flex">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 3-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 5-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 4-8.png" alt="">
-                                    <img class="w-75 pr-1" src="../../assets/img-forw/img-forw/icon/Artboard 1 copy 6-8.png" alt="">
-
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">air conditioner</label>
-                                  </div>
-                                  <div class="form-check  ">
-                                    <input class="form-check-input rounded-circle" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">electric glass</label>
-                                  </div>
-                                  <div class="border-bottom w-100 my-2 p-0"></div>
-
-                                  <div class="d-flex justify-content-between">
-                                      <div class="ml-2">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <span class="fw-bolder ml-1"> 4.5</span> 
-                                      </div>
-                                  
-                                      <div class="mr-2">
-                                        <i class="fa-solid fa-circle-plus text-primary"></i>
-                                        <span class="fw-bolder ml-1"> Compare</span> 
-                                      </div>
-                               
-                                  </div>
-                                 </div>
-                            </div>
-
-                           </div>
-                           
-                  
-                    </div>
-            </div>
-
-       
-              
-          </div>
-    
-    
-        </div>
-
-            <!-- Start Footer -->
-    <footer >
-        <div class="container ">
-            <!-- 1 -->
-            <div class="top">
-
-                <div class="slide">
-                    <div class="text">
-                        <p>Tips before buying a car !</p>
-                    </div>
-                    <div class="image">
-                        <img src="../../assets/images/1.jpg" alt="">
-                    </div>
-                </div>
-
-
-            </div>
-            <!-- 2 -->
-            <div class="middle">
-                <div class="row">
-                    <!-- 1 -->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="box">
-                            <h3>Help</h3>
-                            <ul>
-                                <li>
-                                    <a href="#">Contact Us</a>
-                                </li>
-                                <li>
-                                    <a href="#">Country</a>
-                                </li>
-                                <li>
-                                    <a href="#">FAQ</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- 2 -->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="box">
-                            <h3>Services</h3>
-                            <ul>
-                                <li>
-                                    <a href="index.html">Home</a>
-                                </li>
-                                <li>
-                                    <a href="compare.html">Compare</a>
-                                </li>
-                                <li>
-                                    <a href="#">Car services</a>
-                                </li>
-                                <li>
-                                    <a href="#">Rescue winch</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- 3 -->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="box">
-                            <h3>Tags</h3>
-                            <ul>
-                                <li>
-                                    <a href="#">Care</a>
-                                </li>
-                                <li>
-                                    <a href="#">Car services</a>
-                                </li>
-                                <li>
-                                    <a href="#">Saleing</a>
-                                </li>
-                                <li>
-                                    <a href="#">Rescue</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bottom">
-            <div class="content">
-                <div class="social">
-                    <div class="icon-box">
-                        <i class="fa-brands fa-youtube"></i>
-                    </div>
-                    <div class="icon-box">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </div>
-                    <div class="icon-box">
-                        <i class="fa-brands fa-instagram"></i>
-                    </div>
-                </div>
-                <div class="copyright">
-                    <p>©2022 All rights resaved <a href="#">Car Zone</a></p>
-                </div>
-                <div class="lang">
-                    <select>
-                        <option value="">Language</option>
-                        <option value="English">English</option>
-                        <option value="French">French</option>
-                        <option value="Arabic">Arabic</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- End Footer -->
-
-   
+</footer>
+<!-- End Footer -->

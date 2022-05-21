@@ -39,7 +39,7 @@ const routes: Routes = [
   {path:'home/booknow',canActivate:[AuthGuard],component:BooknowComponent},
   {path:'home/agencies',canActivate:[AuthGuard],component:AgenciesComponent},
   {path:'newcar/detailsnewcar',canActivate:[AuthGuard],component:DetailsnewcarComponent},
-  {path:'oldcar/detailsoldcar',canActivate:[AuthGuard],component:DetailsoldcarComponent},
+  {path:'oldcar/detailsoldcar/:id',canActivate:[AuthGuard],component:DetailsoldcarComponent},
   {path:'agencies/detailsagencies',canActivate:[AuthGuard],component:DetailsagenciesComponent},
 
 

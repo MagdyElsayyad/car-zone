@@ -6,7 +6,7 @@ import {
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from './core/user';
 @Injectable({
   providedIn: 'root',
@@ -127,7 +127,6 @@ export class FirebaseService {
   GoogleAuth() {
     return this.AuthLogin(new firebase.auth.GoogleAuthProvider()).then((res: any) => {
       if (res) {
-        // this.router.navigate(['/home']);
       }
     });
   }
@@ -142,7 +141,6 @@ export class FirebaseService {
             this.router.navigate(['/home']);
           });
         }
-        // this.SetUserData(result.user);
       })
       .catch((error) => {
         window.alert(error);
@@ -174,5 +172,35 @@ export class FirebaseService {
       this.currentUser.next(null);
       this.router.navigate(['sign-in']);
     });
+  }
+
+
+
+  // get cars by category
+  getCars(cat: string): Observable<any>{
+    let cars: any[] = [];
+    return new Observable((sub) =>{
+      this.afs.collection('products').ref.where('productCategory', '==', cat).onSnapshot(snap => {
+        cars = []
+        snap.forEach(p => {
+          cars.push(p.data());
+        });
+        sub.next(cars);
+      }, () => {
+        sub.error('Error');
+      });
+
+    })
+  }
+  // get cars by id
+  getCarsById(id: string): Observable<any>{
+    return new Observable((sub) =>{
+      this.afs.collection('products').ref.where('productId', '==', id).onSnapshot(snap => {
+        sub.next(snap.docs[0].data());
+      }, () => {
+        sub.error('Error');
+      });
+
+    })
   }
 }
