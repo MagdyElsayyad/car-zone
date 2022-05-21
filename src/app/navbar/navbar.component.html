@@ -40,7 +40,7 @@
           <a *ngIf="isLogin" class="nav-link" routerLink="rescuewinch">Rescuewinch</a>
         </li>
           
-        <li class="nav-item mr-1" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <li *ngIf="false" class="nav-item mr-1" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
             <a *ngIf="isLogin" class="nav-link" routerLink="booknow">Book Now</a>
           </li>
           <li class="nav-item mr-1" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
@@ -72,7 +72,7 @@
        
           
         <li class="nav-item">
-            <a *ngIf="isLogin" href="javascript:void(0)"  (click)="isLogOut()" class="nav-link">Logout</a>
+            <a *ngIf="isLogin" href="javascript:void(0)"  (click)="isLogOut()" class="nav-link text-danger">Logout</a>
           </li>
           </ul>
     </div>
