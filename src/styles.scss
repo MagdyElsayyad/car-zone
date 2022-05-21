@@ -169,7 +169,6 @@ a{
     width: 90%;
 }
 a:hover{
-    font-size: 18px;
     color: $fontColor;
     text-decoration: none;
 }
@@ -212,6 +211,9 @@ a{
     color: #06A5F4;
 }
 
+.pointer{
+    cursor: pointer;
+}
 /*  //////////////////// */
 
 .Top-title {

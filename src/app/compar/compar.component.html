@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compare</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <!-- Bootstrap4 CSS File -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Font Awesome CSS File -->
-    <link rel="stylesheet" href="css/all.min.css">
-    <!-- Custom CSS File -->
-    <link rel="stylesheet" href="css/compare.css">
-    <!-- Main CSS File -->
-    <link rel="stylesheet" href="css/main.css">
-</head>
-
-<body>
 
     
     <!-- Start Top Title -->
@@ -30,6 +6,8 @@
         <div class="layout">
             <div class="caption">
                 <h1>Compare</h1>
+                <p class="mt-3">Choose Your Awesome Car !</p>
+
             </div>
         </div>
     </div>
@@ -50,32 +28,40 @@
 
         <div class="container ">
 
-            <div class="top-caption"  data-aos="fade-up"
-            data-aos-anchor-placement="top-bottom">
-                <h2>Compare</h2>
-                <p>Choose Your Awesome Car !</p>
-            </div>
+          
 
             <div class="row">
                 <div class="col-lg-5 ">
-                        <div class="form-box" data-aos="fade-right"
-                        data-aos-offset="300"
-                        data-aos-easing="ease-in-sine">
+                        <div class="form-box" >
                             <h3>First Car</h3>
-                            <form action="">
+                            <div *ngIf="!compareCars[0]" class="text-center text-white my-5">
+                                No Car to compare
+                            </div>
+                            <form *ngIf="compareCars[0]" action="">
+                                <div  class="form-group mx-auto mb-3 text-center" style="max-width: 400px;">
+                                   <img *ngIf="compareCars[0]?.productImage" style="width: 100%;object-fit: cover;margin: auto;" [src]="compareCars[0]?.productImage" alt="">
+                                </div>
                                 <div class="form-group">
-                                    <label for="Brand">Brand</label>
-                                    <input type="text" class="form-control" id="Brand">
+                                    <label for="Brand">Model</label>
+                                    <input readonly [value]="compareCars[0]?.productTitle" type="text" class="form-control" id="Brand">
                                 </div>
     
                                 <div class="form-group">
-                                    <label for="Model">Model</label>
-                                    <input type="text" class="form-control" id="Model">
+                                    <label for="Model">Brand</label>
+                                    <input readonly [value]="compareCars[0]?.productBrand" type="text" class="form-control" id="Model">
                                 </div>
     
                                 <div class="form-group">
-                                    <label for="Class">Class</label>
-                                    <input type="text" class="form-control" id="Class">
+                                    <label for="Class">Price</label>
+                                    <input readonly [value]="compareCars[0]?.price + 'EGP'" type="text" class="form-control" id="Class">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Class">Description</label>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            {{compareCars[0]?.productDescription}}
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -98,29 +84,41 @@
                 data-aos-easing="ease-in-sine">
                     <div class="form-box">
                         <h3>Second Car</h3>
-                        <form action="">
+                        <div *ngIf="!compareCars[1]" class="text-center text-white my-5">
+                            No Car to compare
+                        </div>
+                        <form *ngIf="compareCars[1]" action="">
+                            <div  class="form-group mx-auto mb-3 text-center" style="max-width: 400px;">
+                               <img *ngIf="compareCars[1]?.productImage" style="width: 100%;object-fit: cover;margin: auto;" [src]="compareCars[1]?.productImage" alt="">
+                            </div>
                             <div class="form-group">
-                                <label for="Brand">Brand</label>
-                                <input type="text" class="form-control" id="Brand">
+                                <label for="Brand">Model</label>
+                                <input readonly [value]="compareCars[1]?.productTitle" type="text" class="form-control" id="Brand">
                             </div>
 
                             <div class="form-group">
-                                <label for="Model">Model</label>
-                                <input type="text" class="form-control" id="Model">
+                                <label for="Model">Brand</label>
+                                <input readonly [value]="compareCars[1]?.productBrand" type="text" class="form-control" id="Model">
                             </div>
 
                             <div class="form-group">
-                                <label for="Class">Class</label>
-                                <input type="text" class="form-control" id="Class">
+                                <label for="Class">Price</label>
+                                <input readonly [value]="compareCars[1]?.price + 'EGP'" type="text" class="form-control" id="Class">
+                            </div>
+                            <div class="form-group">
+                                <label for="Class">Description</label>
+                                <div class="card">
+                                    <div class="card-body">
+                                        {{compareCars[0]?.productDescription}}
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <div class="btn-box">
-                <button type="submit" class="btn btn-primary">Compare</button>
-            </div>
+         
 
         </div>
         </div>
@@ -227,13 +225,3 @@
     </footer>
     <!-- End Footer -->
 
-
-    <!-- Bootstrap4 JS File -->
-    <script src="./js/jquery-3.6.0.js"></script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <!-- Main JS File -->
-    <script src="./js/script.js"></script>
-</body>
-
-</html>

@@ -15,12 +15,14 @@ export interface Service {
 export class ServicesComponent implements OnInit {
 
   services: Car[] = [];
-  constructor(private spinner: NgxSpinnerService,private fbService: FirebaseService) { }
+  constructor(private spinner: NgxSpinnerService,
+    private fbService: FirebaseService,
+    ) { }
   
   ngOnInit():void
    {
      this.spinner.show();
-
+    
      this.fbService.getData(ECats.CarService).subscribe(res => {
        console.log(res);
        this.services = res;
