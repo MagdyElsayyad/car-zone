@@ -106,17 +106,24 @@ body
 }
 
 .icon .image-icon {
-    border: 3px solid black;
+    border: 3px solid rgb(114, 114, 114);
     border-radius: 50%;
     margin-bottom: 5px;
-    padding: 15px 15px;
+    padding: 0;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    margin: auto;
 
 }
 
 
 .icon .image-icon  img {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    object-fit: cover;
 }
 
 
