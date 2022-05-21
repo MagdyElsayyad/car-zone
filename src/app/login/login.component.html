@@ -51,12 +51,8 @@
                             <p *ngIf="loginForm.get('password')?.errors?.['pattern'] " class="mb-0">password must start with uppercase ...</p>
             
                         </div>
-                        <a href=""> <h6  class="text-right mt-2 h6 " >Forget password ?</h6></a>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <a href=""> <h6  class="text-left h6">Show mu password </h6></a>   
-                            
-                          </div>
+                        <a href="" *ngIf="false"> <h6  class="text-right mt-2 h6 " >Forget password ?</h6></a>
+                       
                     </div>
                     <div class="text-center mt-5"> <button  class="btn btn-primary py-2 px-5 font-weight-bolder " type="submit">Login</button> </div>
                     <div ><h6 class="font-weight-bold text-center mt-4"><span class="text-secondary">ـــــــــــــــــــــــــــــــــــــــــــ</span> Or <span class="text-secondary">ـــــــــــــــــــــــــــــــــــــــ</span></h6></div>

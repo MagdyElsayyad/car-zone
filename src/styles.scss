@@ -200,8 +200,12 @@ a:hover{
     font-size: 25px;
     margin-left: 10px;
     border: 1px solid cornflowerblue;
-  
+  cursor: pointer;
     padding: 5px;
+}
+
+a{
+    cursor: pointer;
 }
 .text-inf
 {
