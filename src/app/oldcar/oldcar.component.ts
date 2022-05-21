@@ -18,7 +18,7 @@ export class OldcarComponent implements OnInit {
    {
      this.spinner.show();
 
-     this.fbService.getCars(ECats.NewCar).subscribe(res => {
+     this.fbService.getData(ECats.OldCar).subscribe(res => {
        this.cars = res;
        this.spinner.hide();
      })

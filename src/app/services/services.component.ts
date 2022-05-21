@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ECats } from '../app-constants';
+import { FirebaseService } from '../firebase.service';
+import { Car } from '../shared/models/car.model';
 
+export interface Service {
+
+}
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
@@ -8,17 +14,18 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class ServicesComponent implements OnInit {
 
-  constructor(private spinner: NgxSpinnerService,) { }
-
+  services: Car[] = [];
+  constructor(private spinner: NgxSpinnerService,private fbService: FirebaseService) { }
+  
   ngOnInit():void
    {
      this.spinner.show();
 
-    setTimeout(() => {
-   /** spinner ends after 5 seconds */
-    this.spinner.hide();
-      }, 1000);
-
+     this.fbService.getData(ECats.CarService).subscribe(res => {
+       console.log(res);
+       this.services = res;
+       this.spinner.hide();
+     })
   }
 
 

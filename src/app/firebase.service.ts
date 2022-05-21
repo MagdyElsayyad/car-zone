@@ -177,7 +177,7 @@ export class FirebaseService {
 
 
   // get cars by category
-  getCars(cat: string): Observable<any>{
+  getData(cat: string): Observable<any>{
     let cars: any[] = [];
     return new Observable((sub) =>{
       this.afs.collection('products').ref.where('productCategory', '==', cat).onSnapshot(snap => {
@@ -193,7 +193,7 @@ export class FirebaseService {
     })
   }
   // get cars by id
-  getCarsById(id: string): Observable<any>{
+  getDetailssById(id: string): Observable<any>{
     return new Observable((sub) =>{
       this.afs.collection('products').ref.where('productId', '==', id).onSnapshot(snap => {
         sub.next(snap.docs[0].data());
