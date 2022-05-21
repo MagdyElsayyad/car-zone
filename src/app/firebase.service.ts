@@ -192,6 +192,23 @@ export class FirebaseService {
 
     })
   }
+  // search
+  getAll(): Observable<any>{
+    let results: any[] = [];
+    return new Observable((sub) =>{
+      this.afs.collection('products').ref.orderBy("productTitle")
+      .onSnapshot(snap => {
+        results = []
+        snap.forEach(p => {
+          results.push(p.data());
+        });
+        sub.next(results);
+      }, () => {
+        sub.error('Error');
+      });
+
+    })
+  }
   // get cars by id
   getDetailssById(id: string): Observable<any>{
     return new Observable((sub) =>{

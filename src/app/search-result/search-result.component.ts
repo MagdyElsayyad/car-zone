@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ECats } from '../app-constants';
 import { FirebaseService } from '../firebase.service';
 import { Car } from '../shared/models/car.model';
 
@@ -11,17 +11,27 @@ import { Car } from '../shared/models/car.model';
 })
 export class SearchResultComponent implements OnInit {
 
-  rescuewinches: Car[] = [];
-  constructor(private spinner: NgxSpinnerService,private fbService: FirebaseService) { }
+  searchText = '';
+  searchResult: Car[] = [];
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private spinner: NgxSpinnerService,
+    private fbService: FirebaseService) { }
   
   ngOnInit():void
    {
-     this.spinner.show();
+     const q = this.activeRoute.snapshot.params['q']
+    this.getAll();
+    this.searchText = q;
+  }
 
-     this.fbService.getData(ECats.RescueWinch).subscribe(res => {
-       this.rescuewinches = res;
-       console.log(res);
-       this.spinner.hide();
-     })
+  getAll(){
+      this.spinner.show();
+      this.fbService.getAll().subscribe(res => {
+        this.searchResult = res;
+        console.log(res);
+        this.spinner.hide();
+      })
+    
   }
 }

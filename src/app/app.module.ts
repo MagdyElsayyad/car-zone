@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { AgenciesComponent } from './agencies/agencies.component';
@@ -26,10 +27,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { OldcarComponent } from './oldcar/oldcar.component';
 import { RegisterComponent } from './register/register.component';
 import { RescuewinchComponent } from './rescuewinch/rescuewinch.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 import { SellingComponent } from './selling/selling.component';
 import { ServicesComponent } from './services/services.component';
-import { SearchResultComponent } from './search-result/search-result.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,8 +62,9 @@ import { SearchResultComponent } from './search-result/search-result.component';
      HttpClientModule,
      BrowserAnimationsModule,
      CarouselModule,
+     Ng2SearchPipeModule,
      NgxSpinnerModule,
-
+     FormsModule,
      AngularFireAuthModule,
      AngularFirestoreModule,
      AngularFireModule.initializeApp({
