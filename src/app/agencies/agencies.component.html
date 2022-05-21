@@ -25,77 +25,30 @@
                <h2>Car maintenance centers in Egypt</h2>
            
            </div>
-    <section class=" drop-down container ">
-
-        <div class="boxes" data-aos="zoom-in-down">
-            <ul>
-                <!-- 1 -->
-                <li>
-                    <select>
-                        <option value="#">Old Car</option>
-                        <option value="#">B</option>
-                        <option value="#">C</option>
-                    </select>
-                </li>
-                <!-- 2 -->
-                <li>
-                    <select>
-                        <option value="#">Brand</option>
-                        <option value="#">B</option>
-                        <option value="#">C</option>
-                    </select>
-                </li>
-                <!-- 3 -->
-                <li>
-                    <select>
-                        <option value="#">Modal</option>
-                        <option value="#">B</option>
-                        <option value="#">C</option>
-                    </select>
-                </li>
-                <!-- 4 -->
-                <li>
-                    <select>
-                        <option value="#">Class</option>
-                        <option value="#">B</option>
-                        <option value="#">C</option>
-                    </select>
-                </li>
-                <!-- 5 -->
-                <li id="button">
-                    <button class="btn">Search</button>
-                </li>
-                <!-- 0 -->
-            </ul>
-        </div>
-
-
-    </section>
+    
     </div>
 
     <div class="container">
         <div class=" mx-3 mt-5 mb-3 addres">
-            <h4> Showroom In Egypt </h4>
+            <h4> Show room In Egypt </h4>
         </div>
         <div class="row">
-            <div class="col-md-4 mb-3">
+            <div *ngFor="let agency of agencies" class="col-md-4 mb-3">
                 <div class="cars border roundedd p-3 bg-gray">
                                 
                     <a routerLink="detailsagencies">
-                    <img class="w-100 roundedd " src="../../assets/img-forw/img-forw/logos/أسعار-السيارات-فى-معرض-القرش.jpg" alt="">
+                    <img class="w-100 roundedd " [src]="agency?.productImage" alt="">
                     </a>
                     <div class="pl-2 mt-3 font-weight-bolder">
                         <div class="d-flex justify-content-between">
-                            <h4 class="font-weight-bold">Alqersh cars</h4> 
+                            <h4 class="font-weight-bold">{{agency?.productTitle}}</h4> 
 
-                            <div>
-                              <i class="fa-solid fa-star text-warning"></i>
-                              <span class="fw-bolder ml-1"> 4.5</span> 
-                            </div>
+                           
                         </div>
                     <p class="mb-1 text-muted fs-6">Cairo </p>
                     <div class="icon mt-2 pt-2">
-                        <h5 class="pb-3">Offers and discount - up to 25% <i class="fa-solid fa-thin fa-bookmark"></i>
+                        <h5 class="pb-3">
+                            {{agency?.productDescription}}
                         </h5>
                     </div>
 
@@ -104,293 +57,7 @@
                 </div>
 
             </div>
-            <div class="col-md-4 mb-3">
-                <div class="cars border roundedd p-3 bg-gray">
-                                
-                    <a routerLink="detailsagencies">
-                    <img class="w-100 roundedd " src="../../assets/img-forw/img-forw/logos/أسعار-السيارات-فى-معرض-القرش.jpg" alt="">
-                    </a>
-                    <div class="pl-2 mt-3 font-weight-bolder">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="font-weight-bold">Alqersh cars</h4> 
-
-                            <div>
-                              <i class="fa-solid fa-star text-warning"></i>
-                              <span class="fw-bolder ml-1"> 4.5</span> 
-                            </div>
-                        </div>
-                    <p class="mb-1 text-muted fs-6">Cairo </p>
-                    <div class="icon mt-2 pt-2">
-                        <h5 class="pb-3">Offers and discount - up to 25% <i class="fa-solid fa-thin fa-bookmark"></i>
-                        </h5>
-                    </div>
-
            
-                     </div>
-                </div>
-
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="cars border roundedd p-3 bg-gray">
-                                
-                    <a routerLink="detailsagencies">
-                    <img class="w-100 roundedd " src="../../assets/img-forw/img-forw/logos/أسعار-السيارات-فى-معرض-القرش.jpg" alt="">
-                    </a>
-                    <div class="pl-2 mt-3 font-weight-bolder">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="font-weight-bold">Alqersh cars</h4> 
-
-                            <div>
-                              <i class="fa-solid fa-star text-warning"></i>
-                              <span class="fw-bolder ml-1"> 4.5</span> 
-                            </div>
-                        </div>
-                    <p class="mb-1 text-muted fs-6">Cairo </p>
-                    <div class="icon mt-2 pt-2">
-                        <h5 class="pb-3">Offers and discount - up to 25% <i class="fa-solid fa-thin fa-bookmark"></i>
-                        </h5>
-                    </div>
-
-           
-                     </div>
-                </div>
-
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="cars border roundedd p-3 bg-gray">
-                                
-                    <a routerLink="detailsagencies">
-                    <img class="w-100 roundedd " src="../../assets/img-forw/img-forw/logos/أسعار-السيارات-فى-معرض-القرش.jpg" alt="">
-                    </a>
-                    <div class="pl-2 mt-3 font-weight-bolder">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="font-weight-bold">Alqersh cars</h4> 
-
-                            <div>
-                              <i class="fa-solid fa-star text-warning"></i>
-                              <span class="fw-bolder ml-1"> 4.5</span> 
-                            </div>
-                        </div>
-                    <p class="mb-1 text-muted fs-6">Cairo </p>
-                    <div class="icon mt-2 pt-2">
-                        <h5 class="pb-3">Offers and discount - up to 25% <i class="fa-solid fa-thin fa-bookmark"></i>
-                        </h5>
-                    </div>
-
-           
-                     </div>
-                </div>
-
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="cars border roundedd p-3 bg-gray">
-                                
-                    <a routerLink="detailsagencies">
-                    <img class="w-100 roundedd " src="../../assets/img-forw/img-forw/logos/أسعار-السيارات-فى-معرض-القرش.jpg" alt="">
-                    </a>
-                    <div class="pl-2 mt-3 font-weight-bolder">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="font-weight-bold">Alqersh cars</h4> 
-
-                            <div>
-                              <i class="fa-solid fa-star text-warning"></i>
-                              <span class="fw-bolder ml-1"> 4.5</span> 
-                            </div>
-                        </div>
-                    <p class="mb-1 text-muted fs-6">Cairo </p>
-                    <div class="icon mt-2 pt-2">
-                        <h5 class="pb-3">Offers and discount - up to 25% <i class="fa-solid fa-thin fa-bookmark"></i>
-                        </h5>
-                    </div>
-
-           
-                     </div>
-                </div>
-
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="cars border roundedd p-3 bg-gray">
-                                
-                    <a routerLink="detailsagencies">
-                    <img class="w-100 roundedd " src="../../assets/img-forw/img-forw/logos/أسعار-السيارات-فى-معرض-القرش.jpg" alt="">
-                    </a>
-                    <div class="pl-2 mt-3 font-weight-bolder">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="font-weight-bold">Alqersh cars</h4> 
-
-                            <div>
-                              <i class="fa-solid fa-star text-warning"></i>
-                              <span class="fw-bolder ml-1"> 4.5</span> 
-                            </div>
-                        </div>
-                    <p class="mb-1 text-muted fs-6">Cairo </p>
-                    <div class="icon mt-2 pt-2">
-                        <h5 class="pb-3">Offers and discount - up to 25% <i class="fa-solid fa-thin fa-bookmark"></i>
-                        </h5>
-                    </div>
-
-           
-                     </div>
-                </div>
-
-            </div>
-                        <div class="col-md-4 mb-3">
-                <div class="cars border roundedd p-3 bg-gray">
-                                
-                    <a routerLink="detailsagencies">
-                    <img class="w-100 roundedd " src="../../assets/img-forw/img-forw/logos/أسعار-السيارات-فى-معرض-القرش.jpg" alt="">
-                    </a>
-                    <div class="pl-2 mt-3 font-weight-bolder">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="font-weight-bold">Alqersh cars</h4> 
-
-                            <div>
-                              <i class="fa-solid fa-star text-warning"></i>
-                              <span class="fw-bolder ml-1"> 4.5</span> 
-                            </div>
-                        </div>
-                    <p class="mb-1 text-muted fs-6">Cairo </p>
-                    <div class="icon mt-2 pt-2">
-                        <h5 class="pb-3">Offers and discount - up to 25% <i class="fa-solid fa-thin fa-bookmark"></i>
-                        </h5>
-                    </div>
-
-           
-                     </div>
-                </div>
-
-            </div>
-                        <div class="col-md-4 mb-3">
-                <div class="cars border roundedd p-3 bg-gray">
-                                
-                    <a routerLink="detailsagencies">
-                    <img class="w-100 roundedd " src="../../assets/img-forw/img-forw/logos/أسعار-السيارات-فى-معرض-القرش.jpg" alt="">
-                    </a>
-                    <div class="pl-2 mt-3 font-weight-bolder">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="font-weight-bold">Alqersh cars</h4> 
-
-                            <div>
-                              <i class="fa-solid fa-star text-warning"></i>
-                              <span class="fw-bolder ml-1"> 4.5</span> 
-                            </div>
-                        </div>
-                    <p class="mb-1 text-muted fs-6">Cairo </p>
-                    <div class="icon mt-2 pt-2">
-                        <h5 class="pb-3">Offers and discount - up to 25% <i class="fa-solid fa-thin fa-bookmark"></i>
-                        </h5>
-                    </div>
-
-           
-                     </div>
-                </div>
-
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="cars border roundedd p-3 bg-gray">
-                                
-                    <a routerLink="detailsagencies">
-                    <img class="w-100 roundedd " src="../../assets/img-forw/img-forw/logos/أسعار-السيارات-فى-معرض-القرش.jpg" alt="">
-                    </a>
-                    <div class="pl-2 mt-3 font-weight-bolder">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="font-weight-bold">Alqersh cars</h4> 
-
-                            <div>
-                              <i class="fa-solid fa-star text-warning"></i>
-                              <span class="fw-bolder ml-1"> 4.5</span> 
-                            </div>
-                        </div>
-                    <p class="mb-1 text-muted fs-6">Cairo </p>
-                    <div class="icon mt-2 pt-2">
-                        <h5 class="pb-3">Offers and discount - up to 25% <i class="fa-solid fa-thin fa-bookmark"></i>
-                        </h5>
-                    </div>
-
-           
-                     </div>
-                </div>
-
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="cars border roundedd p-3 bg-gray">
-                                
-                    <a routerLink="detailsagencies">
-                    <img class="w-100 roundedd " src="../../assets/img-forw/img-forw/logos/أسعار-السيارات-فى-معرض-القرش.jpg" alt="">
-                    </a>
-                    <div class="pl-2 mt-3 font-weight-bolder">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="font-weight-bold">Alqersh cars</h4> 
-
-                            <div>
-                              <i class="fa-solid fa-star text-warning"></i>
-                              <span class="fw-bolder ml-1"> 4.5</span> 
-                            </div>
-                        </div>
-                    <p class="mb-1 text-muted fs-6">Cairo </p>
-                    <div class="icon mt-2 pt-2">
-                        <h5 class="pb-3">Offers and discount - up to 25% <i class="fa-solid fa-thin fa-bookmark"></i>
-                        </h5>
-                    </div>
-
-           
-                     </div>
-                </div>
-
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="cars border roundedd p-3 bg-gray">
-                                
-                    <a routerLink="detailsagencies">
-                    <img class="w-100 roundedd " src="../../assets/img-forw/img-forw/logos/أسعار-السيارات-فى-معرض-القرش.jpg" alt="">
-                    </a>
-                    <div class="pl-2 mt-3 font-weight-bolder">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="font-weight-bold">Alqersh cars</h4> 
-
-                            <div>
-                              <i class="fa-solid fa-star text-warning"></i>
-                              <span class="fw-bolder ml-1"> 4.5</span> 
-                            </div>
-                        </div>
-                    <p class="mb-1 text-muted fs-6">Cairo </p>
-                    <div class="icon mt-2 pt-2">
-                        <h5 class="pb-3">Offers and discount - up to 25% <i class="fa-solid fa-thin fa-bookmark"></i>
-                        </h5>
-                    </div>
-
-           
-                     </div>
-                </div>
-
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="cars border roundedd p-3 bg-gray">
-                                
-                    <a routerLink="detailsagencies">
-                    <img class="w-100 roundedd " src="../../assets/img-forw/img-forw/logos/أسعار-السيارات-فى-معرض-القرش.jpg" alt="">
-                    </a>
-                    <div class="pl-2 mt-3 font-weight-bolder">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="font-weight-bold">Alqersh cars</h4> 
-
-                            <div>
-                              <i class="fa-solid fa-star text-warning"></i>
-                              <span class="fw-bolder ml-1"> 4.5</span> 
-                            </div>
-                        </div>
-                    <p class="mb-1 text-muted fs-6">Cairo </p>
-                    <div class="icon mt-2 pt-2">
-                        <h5 class="pb-3">Offers and discount - up to 25% <i class="fa-solid fa-thin fa-bookmark"></i>
-                        </h5>
-                    </div>
-
-           
-                     </div>
-                </div>
-
-            </div>
- 
 
          
         </div>
@@ -404,20 +71,6 @@
                 <!-- Start Footer -->
                 <footer class="mt-5">
                     <div class="container">
-                        <!-- 1 -->
-                        <div class="top">
-            
-                            <div class="slide">
-                                <div class="text">
-                                    <p>Tips before buying a car !</p>
-                                </div>
-                                <div class="image">
-                                    <img src="../../assets/images/1.jpg" alt="">
-                                </div>
-                            </div>
-            
-            
-                        </div>
                         <!-- 2 -->
                         <div class="middle">
                             <div class="row">
