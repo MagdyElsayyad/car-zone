@@ -28,6 +28,7 @@ import { RegisterComponent } from './register/register.component';
 import { RescuewinchComponent } from './rescuewinch/rescuewinch.component';
 import { SellingComponent } from './selling/selling.component';
 import { ServicesComponent } from './services/services.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ServicesComponent } from './services/services.component';
     DetailsnewcarComponent,
     DetailsoldcarComponent,
     AgenciesComponent,
+    SearchResultComponent,
     
   
   ],

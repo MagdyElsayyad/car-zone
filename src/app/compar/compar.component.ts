@@ -10,7 +10,7 @@ import { Car } from '../shared/models/car.model';
 })
 export class ComparComponent implements OnInit {
   compareCars: Car[] = [];
-  constructor(private spinner: NgxSpinnerService,    private cmprService: CompareService,) { }
+  constructor(private spinner: NgxSpinnerService,    public cmprService: CompareService,) { }
 
    
   ngOnInit():void

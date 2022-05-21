@@ -14,6 +14,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { OldcarComponent } from './oldcar/oldcar.component';
 import { RegisterComponent } from './register/register.component';
 import { RescuewinchComponent } from './rescuewinch/rescuewinch.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 import { SellingComponent } from './selling/selling.component';
 import { ServicesComponent } from './services/services.component';
 
@@ -41,6 +42,7 @@ const routes: Routes = [
   {path:'newcar/detailsnewcar/:id',canActivate:[AuthGuard],component:DetailsnewcarComponent},
   {path:'oldcar/detailsoldcar/:id',canActivate:[AuthGuard],component:DetailsoldcarComponent},
   {path:'agencies/detailsagencies',canActivate:[AuthGuard],component:DetailsagenciesComponent},
+  {path:'search/:q',canActivate:[AuthGuard],component:SearchResultComponent},
 
 
   

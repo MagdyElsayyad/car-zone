@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ECats } from '../app-constants';
+import { CompareService } from '../compare.service';
 import { FirebaseService } from '../firebase.service';
 import { Car } from '../shared/models/car.model';
 
@@ -12,7 +13,7 @@ import { Car } from '../shared/models/car.model';
 export class OldcarComponent implements OnInit {
 
   cars: Car[] = [];
-  constructor(private spinner: NgxSpinnerService,private fbService: FirebaseService) { }
+  constructor(private spinner: NgxSpinnerService, public compareService: CompareService,private fbService: FirebaseService) { }
   
   ngOnInit():void
    {
@@ -23,5 +24,7 @@ export class OldcarComponent implements OnInit {
        this.spinner.hide();
      })
   }
-
+  addToCompare(car: Car){
+    this.compareService.addCar(car);
+  }
 }

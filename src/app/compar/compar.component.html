@@ -37,7 +37,10 @@
                             <div *ngIf="!compareCars[0]" class="text-center text-white my-5">
                                 No Car to compare
                             </div>
-                            <form *ngIf="compareCars[0]" action="">
+                            <form *ngIf="compareCars[0]" >
+                                <div class="text-center mb-2">
+                                    <button type="button" (click)="cmprService.addCar(compareCars[0])" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Remove</button>
+                                </div>
                                 <div  class="form-group mx-auto mb-3 text-center" style="max-width: 400px;">
                                    <img *ngIf="compareCars[0]?.productImage" style="height: 300px; max-width: 400px ;object-fit: cover;margin: auto;" [src]="compareCars[0]?.productImage" alt="">
                                 </div>
@@ -87,7 +90,10 @@
                         <div *ngIf="!compareCars[1]" class="text-center text-white my-5">
                             No Car to compare
                         </div>
-                        <form *ngIf="compareCars[1]" action="">
+                        <form *ngIf="compareCars[1]">
+                            <div class="text-center mb-2">
+                                <button type="button" (click)="cmprService.addCar(compareCars[1])" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Remove</button>
+                            </div>
                             <div  class="form-group mx-auto mb-3 text-center" style="max-width: 400px;">
                                <img *ngIf="compareCars[1]?.productImage" style="height: 300px; max-width: 400px ;object-fit: cover;margin: auto;" [src]="compareCars[1]?.productImage" alt="">
                             </div>
