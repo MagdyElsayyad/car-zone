@@ -14,12 +14,18 @@ export class CompareService {
   }
 
   addCar(car: Car) {
-    if (this.carList.getValue()?.length < 2 && !this.carList.value.find(e => e.productId === car.productId)) {
-      this.carList.next([...this.carList.getValue(), car]);
-      localStorage.setItem('compare-cars', JSON.stringify(this.carList.value) );
-    } else {
-      alert('You should remove one car to compare another')
+    if(this.carList.value.find(e => e.productId === car.productId)){
+      const arr = this.carList.value;
+      arr.splice(arr.findIndex(e => e.productId === car.productId), 1);
+      this.carList.next(arr);
+    }else{
+      if (this.carList.getValue()?.length < 2 ) {
+        this.carList.next([...this.carList.getValue(), car]);
+      } else {
+        alert('You should remove one car to compare another')
+      }
     }
+    localStorage.setItem('compare-cars', JSON.stringify(this.carList.value) );
   }
 
   getCompared(): Observable<Car[]> {
