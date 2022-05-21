@@ -14,6 +14,7 @@ import { User } from './core/user';
 export class FirebaseService {
   userData: any; // Save logged in user data
   currentUser = new BehaviorSubject<firebase.User | null>(null);
+  
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -75,7 +76,7 @@ export class FirebaseService {
     return this.afAuth.currentUser
       .then((u: any) => u.sendEmailVerification())
       .then(() => {
-        this.router.navigate(['verify-email-address']);
+        this.router.navigate(['/home']);
       });
   }
 

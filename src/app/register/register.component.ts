@@ -37,9 +37,7 @@ export class RegisterComponent implements OnInit {
       email: registerForm.value.email,
       name: registerForm.value.first_name + ' ' +  registerForm.value.last_name,
     }
-    this.fbService.SignUp(user).then((response)=>{
-     
-    });
+    this.fbService.SignUp(user);
 
     
   }
