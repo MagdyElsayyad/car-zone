@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { FirebaseService } from '../firebase.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,11 +9,10 @@ import { AuthService } from '../auth.service';
 export class NavbarComponent implements OnInit {
 
   isLogin:boolean =false;
-  constructor(private _AuthService:AuthService) {
+  constructor(private fbService:FirebaseService) {
  
-    _AuthService.currentUser.subscribe(()=>{
-
-      if(_AuthService.currentUser.getValue() != null)
+    fbService.currentUser.subscribe((user)=>{
+      if(fbService.currentUser.getValue() != null)
       {
         this.isLogin=true;
       }
@@ -30,7 +29,7 @@ export class NavbarComponent implements OnInit {
 
   isLogOut()
   {
-    this._AuthService.logout();
+    this.fbService.SignOut();
   }
 
 

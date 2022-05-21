@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as AOS from 'aos';
+import { FirebaseService } from './firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,10 @@ import * as AOS from 'aos';
 export class AppComponent {
   title = 'CarZone';
 
-  ngOnInit()
-  {
+  constructor(private firebaseService: FirebaseService){}
+  ngOnInit(): void {
+    this.firebaseService.userChanges(true);
     AOS.init()
   }
+
 }

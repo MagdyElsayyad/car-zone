@@ -1,26 +1,26 @@
-import { RescuewinchComponent } from './rescuewinch/rescuewinch.component';
-import { SellingComponent } from './selling/selling.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './auth.guard';
+import { AgenciesComponent } from './agencies/agencies.component';
 import { BooknowComponent } from './booknow/booknow.component';
 import { ComparComponent } from './compar/compar.component';
+import { AuthGuard } from './core/auth.guard';
+import { DetailsagenciesComponent } from './detailsagencies/detailsagencies.component';
+import { DetailsnewcarComponent } from './detailsnewcar/detailsnewcar.component';
+import { DetailsoldcarComponent } from './detailsoldcar/detailsoldcar.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NewcarComponent } from './newcar/newcar.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { OldcarComponent } from './oldcar/oldcar.component';
 import { RegisterComponent } from './register/register.component';
+import { RescuewinchComponent } from './rescuewinch/rescuewinch.component';
+import { SellingComponent } from './selling/selling.component';
 import { ServicesComponent } from './services/services.component';
-import { AgenciesComponent } from './agencies/agencies.component';
-import { DetailsnewcarComponent } from './detailsnewcar/detailsnewcar.component';
-import { DetailsoldcarComponent } from './detailsoldcar/detailsoldcar.component';
-import { DetailsagenciesComponent } from './detailsagencies/detailsagencies.component';
 
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'home',pathMatch:'full'},
+  {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'home',canActivate:[AuthGuard],component:HomeComponent},
   {path:'oldcar',canActivate:[AuthGuard],component:OldcarComponent},
   {path:'newcar',canActivate:[AuthGuard],component:NewcarComponent},

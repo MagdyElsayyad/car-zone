@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup ,Validators  } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import { User } from '../core/user';
+import { FirebaseService } from '../firebase.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
   isLogin:boolean =false;
 
   error:string='';
-  constructor(private _AuthService:AuthService , private _Router:Router , private spinner: NgxSpinnerService) {
+  constructor(private fbService:FirebaseService , private _Router:Router , private spinner: NgxSpinnerService) {
     
    }
 
@@ -30,13 +31,14 @@ export class RegisterComponent implements OnInit {
 
   submitRegisterForm(registerForm:FormGroup)
   {
-    this._AuthService.register(registerForm.value).subscribe((response)=>{
-      if(response.message == "success"){
-        this._Router.navigate(['/login']); 
-      }
-      else{
-        this.error=response.errors.email.message;
-      }
+    const user:User = {
+      age: registerForm.value.age,
+      password: registerForm.value.password,
+      email: registerForm.value.email,
+      name: registerForm.value.first_name + ' ' +  registerForm.value.last_name,
+    }
+    this.fbService.SignUp(user).then((response)=>{
+     
     });
 
     
