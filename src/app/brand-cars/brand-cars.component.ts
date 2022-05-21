@@ -25,7 +25,7 @@ export class BrandCarsComponent implements OnInit {
      this.brand = this.route.snapshot.params['brand']
      this.spinner.show();
     
-     this.fbService.getDataByBrand(this.brand).subscribe(res => {
+     this.fbService.getDataByBrand(this.brand.toUpperCase()).subscribe(res => {
        this.cars = res;
        this.spinner.hide();
      })
