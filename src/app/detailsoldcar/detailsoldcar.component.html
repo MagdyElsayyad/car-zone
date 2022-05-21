@@ -12,7 +12,8 @@
   <div class="path">
     <span class="pr-1">Used car</span>
     <span class="pr-1 gray"> ></span>
-    <span class="pr-1">Used car</span>
+    <span *ngIf="car?.productTitle" class="pr-1">{{car.productTitle}}</span>
+
   </div>
 </div>
 <div class="container" *ngIf="car">

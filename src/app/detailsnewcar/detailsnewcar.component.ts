@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { FirebaseService } from '../firebase.service';
+import { Car } from '../shared/models/car.model';
 
 @Component({
   selector: 'app-detailsnewcar',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsnewcarComponent implements OnInit {
 
-  constructor() { }
+  car!:Car ;
+  constructor(private activeRoute: ActivatedRoute, private fbService: FirebaseService) { }
 
   ngOnInit(): void {
+    const id = this.activeRoute.snapshot.params['id'];
+    this.fbService.getDetailssById(id).subscribe(res => {
+      this.car = res;
+    })
   }
 
 }
