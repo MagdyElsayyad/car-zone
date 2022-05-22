@@ -9,7 +9,7 @@
 </div>
 
 <!--  -->
-<section class="winch mb-15">
+<section class="item mb-15">
 
     <div class="container ">
 
@@ -31,23 +31,34 @@
                 No results
             </div>
             <div class="w-100"></div>
-            <div *ngFor="let winch of searchResult | filter: searchText"
+            <div *ngFor="let item of searchResult | filter: searchText"
                 class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center"
                 data-aos="zoom-out-right">
-                <div class="icon m-3 border p-4">
+                <div class="icon m-3 border p-2">
                     <p class="text-center text-primary">
-                        <small>{{winch?.productCategory}}</small>
+                        <small>{{item?.productCategory}}</small>
                     </p>
-                    <div class="image-icon mb-2">
-                        <img [src]="  winch?.productImage ||'../../assets/images/home/vuesax-linear-shop.png'" alt=""
+                    <div class="image-icon p-2 mb-2">
+                        <img [src]="  item?.productImage ||'../../assets/images/home/vuesax-linear-shop.png'" alt=""
                             class="">
                     </div>
-                    <span>{{winch?.productTitle}}</span>
+                    <span>{{item?.productTitle}}</span>
                     
-                    <div>
+                    <div *ngIf="!(item?.productCategory === ICats.CarAgencies) || !(item?.productDescription | brand).length">
                         <small>
-                            {{winch?.productDescription}}
+                            {{item?.productDescription}}
                         </small>
+                    </div>
+                    <div *ngIf="item?.productCategory === ICats.CarAgencies && (item?.productDescription | brand).length">
+                        <small>
+                            {{item?.productDescription?.slice(0,item?.productDescription?.indexOf('Brands'))}}
+                        </small>
+                    </div>
+                    <div *ngIf="item?.productCategory === ICats.CarAgencies && (item?.productDescription | brand).length" class="p-3">
+                        <p class="text-dark">Brands:</p>
+                        <span class="badge text-white badge-secondary m-1 p-2" *ngFor="let brand of item?.productDescription | brand">
+                            {{brand}}
+                        </span>
                     </div>
                 </div>
             </div>
@@ -108,7 +119,7 @@
                                 <a href="#">Car services</a>
                             </li>
                             <li>
-                                <a href="#">Rescue winch</a>
+                                <a href="#">Rescue Winches</a>
                             </li>
                         </ul>
                     </div>

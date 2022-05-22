@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ECats } from '../app-constants';
 import { FirebaseService } from '../firebase.service';
 import { Car } from '../shared/models/car.model';
 
@@ -11,6 +12,7 @@ import { Car } from '../shared/models/car.model';
 })
 export class SearchResultComponent implements OnInit {
 
+  ICats = ECats;
   searchText = '';
   searchResult: Car[] = [];
   constructor(
