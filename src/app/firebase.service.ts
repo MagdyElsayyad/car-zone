@@ -81,6 +81,7 @@ export class FirebaseService {
   }
 
   userChanges(withRedirect = false) {
+    
     this.afAuth.onAuthStateChanged(currentUser => {
       if (currentUser?.toJSON()) {
         this.isAuth = true;

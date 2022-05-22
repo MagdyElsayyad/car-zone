@@ -5,7 +5,6 @@ import { BooknowComponent } from './booknow/booknow.component';
 import { BrandCarsComponent } from './brand-cars/brand-cars.component';
 import { ComparComponent } from './compar/compar.component';
 import { AuthGuard } from './core/auth.guard';
-import { DetailsagenciesComponent } from './detailsagencies/detailsagencies.component';
 import { DetailsnewcarComponent } from './detailsnewcar/detailsnewcar.component';
 import { DetailsoldcarComponent } from './detailsoldcar/detailsoldcar.component';
 import { HomeComponent } from './home/home.component';
@@ -22,7 +21,7 @@ import { ServicesComponent } from './services/services.component';
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'login',pathMatch:'full'},
+  {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',canActivate:[AuthGuard],component:HomeComponent},
   {path:'oldcar',canActivate:[AuthGuard],component:OldcarComponent},
   {path:'newcar',canActivate:[AuthGuard],component:NewcarComponent},
@@ -42,7 +41,6 @@ const routes: Routes = [
   {path:'home/agencies',canActivate:[AuthGuard],component:AgenciesComponent},
   {path:'newcar/detailsnewcar/:id',canActivate:[AuthGuard],component:DetailsnewcarComponent},
   {path:'oldcar/detailsoldcar/:id',canActivate:[AuthGuard],component:DetailsoldcarComponent},
-  {path:'agencies/detailsagencies',canActivate:[AuthGuard],component:DetailsagenciesComponent},
   {path:'search/:q',canActivate:[AuthGuard],component:SearchResultComponent},
   {path:'brand/:brand',canActivate:[AuthGuard],component:BrandCarsComponent},
 

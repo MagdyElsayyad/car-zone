@@ -36,20 +36,23 @@
             <div *ngFor="let agency of agencies" class="col-md-4 mb-3">
                 <div class="cars border roundedd p-3 bg-gray">
                                 
-                    <a routerLink="detailsagencies">
+                    <a >
                     <img class="w-100 roundedd " [src]="agency?.productImage" alt="">
                     </a>
                     <div class="pl-2 mt-3 font-weight-bolder">
                         <div class="d-flex justify-content-between">
-                            <h4 class="font-weight-bold">{{agency?.productTitle}}</h4> 
-
-                           
+                            <h4 class="font-weight-bold">{{agency?.productTitle}}</h4>  
                         </div>
                     <p class="mb-1 text-muted fs-6">Cairo </p>
                     <div class="icon mt-2 pt-2">
                         <h5 class="pb-3 text-dark">
-                            {{agency?.productDescription}}
+                            {{agency?.productDescription?.slice(0,agency?.productDescription?.indexOf('Brands'))}}
                         </h5>
+                        <div class="p-3">
+                            <span class="badge badge-primary m-1 p-2" *ngFor="let brand of agency?.productDescription | brand">
+                                {{brand}}
+                            </span>
+                        </div>
                     </div>
 
            

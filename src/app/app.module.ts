@@ -13,8 +13,8 @@ import { AgenciesComponent } from './agencies/agencies.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BooknowComponent } from './booknow/booknow.component';
+import { BrandCarsComponent } from './brand-cars/brand-cars.component';
 import { ComparComponent } from './compar/compar.component';
-import { DetailsagenciesComponent } from './detailsagencies/detailsagencies.component';
 import { DetailsnewcarComponent } from './detailsnewcar/detailsnewcar.component';
 import { DetailsoldcarComponent } from './detailsoldcar/detailsoldcar.component';
 import { HomeComponent } from './home/home.component';
@@ -30,7 +30,7 @@ import { RescuewinchComponent } from './rescuewinch/rescuewinch.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SellingComponent } from './selling/selling.component';
 import { ServicesComponent } from './services/services.component';
-import { BrandCarsComponent } from './brand-cars/brand-cars.component';
+import { BrandPipe } from './brand.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,12 +48,12 @@ import { BrandCarsComponent } from './brand-cars/brand-cars.component';
     BooknowComponent,
     SellingComponent,
     RescuewinchComponent,
-    DetailsagenciesComponent,
     DetailsnewcarComponent,
     DetailsoldcarComponent,
     AgenciesComponent,
     SearchResultComponent,
     BrandCarsComponent,
+    BrandPipe,
     
   
   ],
