@@ -8,6 +8,7 @@ import { FirebaseService } from '../firebase.service';
 })
 export class NavbarComponent implements OnInit {
 
+  textSearch = ''
   isLogin:boolean =false;
   constructor(private fbService:FirebaseService) {
  
@@ -36,5 +37,7 @@ export class NavbarComponent implements OnInit {
 
     })
   }
+
+  
 
 }
