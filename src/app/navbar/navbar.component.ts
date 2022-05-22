@@ -11,18 +11,7 @@ export class NavbarComponent implements OnInit {
   isLogin:boolean =false;
   constructor(private fbService:FirebaseService) {
  
-    fbService.currentUser.subscribe((user)=>{
-      if(fbService.currentUser.getValue() != null)
-      {
-        this.isLogin=true;
-      }
-      else
-      {
-        this.isLogin=false;
-
-      }
-
-    })
+    
 
 
   }
@@ -34,6 +23,18 @@ export class NavbarComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.fbService.isAuth.subscribe((logged)=>{
+      if(logged)
+      {
+        this.isLogin=true;
+      }
+      else
+      {
+        this.isLogin=false;
+
+      }
+
+    })
   }
 
 }

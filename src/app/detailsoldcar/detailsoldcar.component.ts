@@ -16,7 +16,6 @@ export class DetailsoldcarComponent implements OnInit {
     const id = this.activeRoute.snapshot.params['id'];
     this.fbService.getDetailssById(id).subscribe(res => {
       this.car = res;
-      console.log(this.car);
     })
   }
 

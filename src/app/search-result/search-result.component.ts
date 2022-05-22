@@ -29,7 +29,7 @@ export class SearchResultComponent implements OnInit {
       this.spinner.show();
       this.fbService.getAll().subscribe(res => {
         this.searchResult = res;
-        console.log(res);
+        
         this.spinner.hide();
       })
     

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Observable } from 'rxjs';
@@ -13,6 +14,7 @@ import { FirebaseService } from '../firebase.service';
 export class AuthGuard implements CanActivate {
   constructor(private firebaseService: FirebaseService, 
     private router: Router,
+    public afAuth: AngularFireAuth,
     private spinner: NgxSpinnerService,
     ) {}
 
@@ -23,7 +25,7 @@ export class AuthGuard implements CanActivate {
       this.spinner.show();
       return new Observable((sub) => {
         
-        this.firebaseService.currentUser.subscribe((usr) => {
+        this.afAuth.authState.subscribe((usr) => {
           const currentUser = usr;
           this.spinner.hide();
           if (currentUser) {

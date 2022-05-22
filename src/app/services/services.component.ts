@@ -24,7 +24,7 @@ export class ServicesComponent implements OnInit {
      this.spinner.show();
     
      this.fbService.getData(ECats.CarService).subscribe(res => {
-       console.log(res);
+       
        this.services = res;
        this.spinner.hide();
      })

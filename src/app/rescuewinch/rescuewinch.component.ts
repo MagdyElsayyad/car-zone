@@ -20,7 +20,7 @@ export class RescuewinchComponent implements OnInit {
 
      this.fbService.getData(ECats.RescueWinch).subscribe(res => {
        this.rescuewinches = res;
-       console.log(res);
+       
        this.spinner.hide();
      })
   }

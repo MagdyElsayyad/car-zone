@@ -14,7 +14,7 @@ import { User } from './core/user';
 export class FirebaseService {
   userData: any; // Save logged in user data
   currentUser = new BehaviorSubject<firebase.User | null>(null);
-  isAuth = false;
+  isAuth = new BehaviorSubject<boolean>(false);
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -82,9 +82,9 @@ export class FirebaseService {
 
   userChanges(withRedirect = false) {
     
-    this.afAuth.onAuthStateChanged(currentUser => {
+    this.afAuth.authState.subscribe(currentUser => {
       if (currentUser?.toJSON()) {
-        this.isAuth = true;
+        this.isAuth.next(true);
         this.afs.collection('users').ref.where('email', '==', currentUser.email).onSnapshot(snap => {
           snap.forEach(userRef => {
             this.currentUser.next(userRef.data() as firebase.User);
@@ -106,7 +106,9 @@ export class FirebaseService {
 
   redirectUser() {
     // setUserStatus
+    setTimeout(() => {
       this.ngZone.run(() => this.router.navigate(['/home']));
+    })
   }
 
   // Reset Forggot password

@@ -21,7 +21,7 @@ export class AgenciesComponent implements OnInit {
      this.spinner.show();
     
      this.fbService.getData(ECats.CarAgencies).subscribe(res => {
-       console.log(res);
+       
        this.agencies = res;
        this.spinner.hide();
      })
