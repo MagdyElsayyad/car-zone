@@ -17,7 +17,7 @@
 
         <div class="row text-center justify-content-center ">
 
-            <div class="col-12  my-4">
+            <div class="col-12 col-md-6  my-4">
                 <form class="form-inline mx-auto my-2 my-lg-0">
                     <div class="input-group mb-0">
                         <label class="w-100" for="">Search about anything you want</label>
@@ -27,9 +27,10 @@
                     </div>
                 </form>
             </div>
-            <div *ngIf="(searchResult | filter: searchText)?.length === 0" class="text-center my-4">
+            <div *ngIf="(searchResult | filter: searchText)?.length === 0" class="text-center col-12 my-4">
                 No results
             </div>
+            <div class="w-100"></div>
             <div *ngFor="let winch of searchResult | filter: searchText"
                 class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center"
                 data-aos="zoom-out-right">
